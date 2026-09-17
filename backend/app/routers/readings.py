@@ -1,11 +1,11 @@
 from fastapi import APIRouter
 
-from app.services.billing_service import BillingService
+from app.services.correction_service import CorrectionService
 
 router = APIRouter(tags=["readings"])
 
 
 @router.get("/readings")
 def list_readings():
-    with BillingService() as svc:
+    with CorrectionService() as svc:
         return {"items": svc.list_readings()}

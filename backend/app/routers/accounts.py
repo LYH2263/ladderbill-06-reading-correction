@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
 from app.services.billing_service import BillingService
+from app.services.correction_service import CorrectionService
 
 router = APIRouter(tags=["accounts"])
 
@@ -17,5 +18,6 @@ def get_account(account_id: int):
         row = svc.get_account(account_id)
         if not row:
             raise HTTPException(404, "account not found")
-        readings = svc.readings_for_account(account_id)
-        return {"account": row, "readings": readings}
+    with CorrectionService() as corr_svc:
+        readings = corr_svc.readings_for_account(account_id)
+    return {"account": row, "readings": readings}

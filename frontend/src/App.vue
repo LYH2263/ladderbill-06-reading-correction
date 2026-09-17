@@ -10,6 +10,7 @@
       <router-link to="/tiers">阶梯表</router-link>
       <router-link to="/compare">尖峰对比</router-link>
       <router-link to="/history">记录</router-link>
+      <router-link to="/corrections">更正单</router-link>
       <router-link to="/settings">设置</router-link>
     </aside>
     <main><router-view /></main>

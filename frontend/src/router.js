@@ -6,6 +6,7 @@ import Workbench from './pages/Workbench.vue'
 import TierRules from './pages/TierRules.vue'
 import PeakCompare from './pages/PeakCompare.vue'
 import RunHistory from './pages/RunHistory.vue'
+import Corrections from './pages/Corrections.vue'
 import Settings from './pages/Settings.vue'
 
 export default createRouter({
@@ -18,6 +19,7 @@ export default createRouter({
     { path: '/tiers', component: TierRules },
     { path: '/compare', component: PeakCompare },
     { path: '/history', component: RunHistory },
+    { path: '/corrections', component: Corrections },
     { path: '/settings', component: Settings },
   ],
 })

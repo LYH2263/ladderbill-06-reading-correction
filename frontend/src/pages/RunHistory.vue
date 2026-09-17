@@ -11,10 +11,14 @@ const summary = (row) => {
   <div class="page">
     <h1>测算记录</h1>
     <table>
-      <thead><tr><th>#</th><th>类型</th><th>户号</th><th>结果摘要</th><th>时间</th></tr></thead>
+      <thead><tr><th>#</th><th>类型</th><th>户号</th><th>抄表#</th><th>结果摘要</th><th>时间</th></tr></thead>
       <tbody>
         <tr v-for="h in items" :key="h.id">
           <td>{{ h.id }}</td><td>{{ h.kind }}</td><td>{{ h.account_id ?? '—' }}</td>
+          <td>
+            <router-link v-if="h.reading_id" :to="`/corrections?reading=${h.reading_id}`">{{ h.reading_id }}</router-link>
+            <span v-else>—</span>
+          </td>
           <td>{{ summary(h) }}</td><td class="muted">{{ h.created_at }}</td>
         </tr>
       </tbody>
