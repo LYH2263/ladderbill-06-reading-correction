@@ -20,3 +20,4 @@ class ReadingOut(BaseModel):
     account_id: int
     kwh: float
     peak: int
+    original_kwh: float | None = None
